@@ -1,6 +1,12 @@
-body{
-    background-color: yellow;
-}
 h1{
     color: navy;
+}
+.cool{
+    width: 100px;
+    height: 100px;
+    background-color: lime;
+    transition: background-color 1000ms;
+}
+.cool.red{
+    background-color: red;
 }

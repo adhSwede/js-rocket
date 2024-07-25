@@ -1,10 +1,31 @@
+body{
+    font-family: 'Bebas Neue';
+}
+
+/* H1 colors depending on outcome */
+h1{
+    font-size: 60px;
+    color: #F7EA80;
+}
+.state4 h1{
+    color: lightgreen;
+}
+.state5 h1{
+    color: orangered;
+}
+
+/* UI */
 .left{
-    background-color: aquamarine;
+    background-color: #163F5C;
     position: fixed;
     width: 50%;
     height: 100%;
     top: 0;
     left: 0;
+}
+.interface{
+    text-align: center;
+    padding: 20px;
 }
 .right{
     background-color: lightcyan;
@@ -15,24 +36,66 @@
     right: 0;
 }
 
+/* Nervous & Can't wait dialogue */
+.nervous{
+    position: absolute;
+    bottom: 150px;
+    left: 50%;
+    background: url(../img/nervous.png);
+    width: 500px;
+    height: 500px;
+    margin-left: -420px;
+    display: none;
+}
+.nervous.show{
+    display: block;
+}
+.cant-wait{
+    position: absolute;
+    bottom: 120px;
+    left: 50%;
+    background: url(../img/wait.png);
+    width: 500px;
+    height: 500px;
+    margin-left: -113zpx;
+    display: none;
+}
+.cant-wait.show{
+    display: block;
+}
 .ground{
+    border-top: 3px black solid;
     background-color: green;
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 20px;
+    height: 75px;
 }
-
 .rocket{
     position: absolute;
     left: 50%;
-    bottom: 20px;
-    width: 20px;
-    height: 100px;
-    background-color: blue;
+    bottom: -42px;
+    width: 500px;
+    height: 500px;
+    margin-left: -250px;
+    background: url('../img/rocket-s1.png') no-repeat 0 0;
     transition: bottom 8000ms;
 }
+
+/* rocket bg image state machine*/
+body.body-state2 .rocket{
+    background-image: url('../img/rocket-s2.gif');
+}
+body.body-state3 .rocket,
+body.body-state4 .rocket{
+    background-image: url('../img/rocket-s3.gif');
+}
+
+body.body-state5 .rocket{
+    background-image: url('../img/boom.png');
+}
+
 
 body.body-state1 .rocket{
     transition: none;
@@ -42,7 +105,6 @@ body.body-state3 .rocket,
 body.body-state4 .rocket{
     bottom: 2000px;
 }
-
 .state1,
 .state2,
 .state3,
@@ -56,11 +118,21 @@ body.body-state2 .state2{ display: block;}
 body.body-state3 .state3{ display: block;}
 body.body-state4 .state4{ display: block;}
 body.body-state5 .state5{ display: block;}
-
 a{
-
+    font-size: 20px;
+    color: white;
 }
-
 a.button{
-
+    display: inline-block;
+    background-color: white;
+    color: black;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    transition: color 300ms;
+    font-size: 30px;
+}
+a:hover{
+    color: red;
 }
